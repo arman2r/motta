@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace seoGraphics\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

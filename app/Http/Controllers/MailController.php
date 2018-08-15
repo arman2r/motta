@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace seoGraphics\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
@@ -12,7 +12,7 @@ class MailController extends Controller
     public function store(Request $request){
     	Mail::send('emails.contact', $request->all(), function($msj){
     		$msj->subject('Correo de contácto');
-    		$msj->to('contactanos@seographics.com.co');
+    		$msj->to('arman.2.r@gmail.com');
     	});	
 
     	Session::flash('message', 'Mensaje enviado correctamente');

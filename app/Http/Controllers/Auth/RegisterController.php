@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace seoGraphics\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use seoGraphics\User;
+use seoGraphics\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -59,7 +59,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \seoGraphics\User
      */
     protected function create(array $data)
     {
