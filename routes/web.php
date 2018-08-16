@@ -26,6 +26,6 @@ Route::get('sendmail', function(){
     });
 
     return "Tú mensaje ha sido enviado con exito";
-});
-*/
+});*/
+
 
