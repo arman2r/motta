@@ -19,6 +19,8 @@ class MailController extends Controller
 
     public function store(Request $request){
 
+		/*return $request->all();*/
+
     	$this->validate($request, [
     		'name' => 'required',
     		'email' => 'required|email',
@@ -35,12 +37,14 @@ class MailController extends Controller
 
     	return redirect()->back()->with('flash_message', 'gracias por contar con nosotros.');
 
+		/*
+    	Mail::send('emails.contact', $data, function($message){
+    		$message->subject('Correo de contácto');
+    		$message->to('arman.2.r@gmail.com');
+		});	
+		
+		return redirect()->back()->with('flash_message', 'gracias por contar con nosotros.');*/
 /*
-    	Mail::send('emails.contact', $request->all(), function($msj){
-    		$msj->subject('Correo de contácto');
-    		$msj->to('arman.2.r@gmail.com');
-    	});	
-
     	Session::flash('message','mensaje enviado Correctamente');
     	return Redirect()->back();
     	*/

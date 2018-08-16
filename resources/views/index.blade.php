@@ -258,7 +258,7 @@
                                 <div class="form-element-wrapper">
                                     <h3>¿Quieres una cotización?</h3>
                                     <div class="form-group customised-formgroup"> <span class="icon-user"></span>
-                                        {{ Form::text('name', 'Nombre',(['class' => 'form-control'])) }}
+                                        {{ Form::text('name', 'Nombre',(['class' => 'form-control', 'required' => 'true'])) }}
                                         @if($errors->has('name'))
                                             <small class="form-text invalid-feedback">
                                                 {{ $errors->first('name') }}
@@ -266,7 +266,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-envelope"></span>
-                                        {{ Form::text('email', 'Email',(['class' => 'form-control'])) }}
+                                        {{ Form::email('email', 'Email',(['class' => 'form-control', 'required' => 'required'])) }}
                                         @if($errors->has('email'))
                                             <small class="form-text invalid-feedback">
                                                 {{ $errors->first('email') }}
@@ -274,7 +274,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-telephone"></span>
-                                        {{ Form::tel('movil', 'Móvil',(['class' => 'form-control'])) }}
+                                        {{ Form::tel('movil', 'Móvil',(['class' => 'form-control', 'required' => 'required'])) }}
                                         @if($errors->has('movil'))
                                             <small class="form-text invalid-feedback">
                                                 {{ $errors->first('movil') }}
@@ -290,7 +290,7 @@
                                         @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-bubble"></span>
-                                        {{ Form::textarea('mensaje', 'Mensaje',(['class' => 'form-control'])) }}
+                                        {{ Form::textarea('mensaje', 'Mensaje',(['class' => 'form-control', 'required' => 'required'])) }}
                                         @if($errors->has('mensaje'))
                                             <small class="form-text invalid-feedback">
                                                 {{ $errors->first('mensaje') }}
@@ -386,13 +386,13 @@
 @section('scripts')
     @parent
     <script>
-        /*
-            $(document).ready(function() {
+        
+            /*$(document).ready(function() {
                
 
                 $(".btnsendemail").click(function(e){
 
-                    alert('algo pasa');
+                    //alert('algo pasa');
 
                     $.ajaxSetup({
                       headers: {
@@ -439,7 +439,7 @@
 
 
 
-            });
-            */
+            });*/
+            
     </script>
 @endsection
