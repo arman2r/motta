@@ -290,15 +290,15 @@
                                         @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-bubble"></span>
-                                        {{ Form::textarea('mensaje', 'Mensaje',(['class' => 'form-control', 'required' => 'required'])) }}
-                                        @if($errors->has('mensaje'))
+                                        {{ Form::textarea('comment', 'Mensaje',(['class' => 'form-control', 'required' => 'required'])) }}
+                                        @if($errors->has('comment'))
                                             <small class="form-text invalid-feedback">
-                                                {{ $errors->first('mensaje') }}
+                                                {{ $errors->first('comment') }}
                                             </small>
                                         @endif
                                     </div>
                                     <div>
-                                        {!!Form::submit('SEND', array('name' => 'boton', 'class' => 'btn btn-fill full-width btnsendemail')) !!}
+                                        {!!Form::submit('SEND', array('class' => 'btn btn-fill full-width btnsendemail')) !!}
                                         <!--<button type="submit" class="btn btn-fill full-width"> Si la Quiero <span class="icon-chevron-right"></span></button>-->
                                     </div>
                                 </div>
