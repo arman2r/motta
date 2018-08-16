@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'mail.seographics.com.co'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'arman.2.r@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contactanos@seographics.com.co'),
         'name' => env('MAIL_FROM_NAME', 'seographics'),
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('arman.2.r@gmail.com'),
+    'username' => env('contactanos@seographics.com.co'),
 
-    'password' => env('Armando123--'),
+    'password' => env('Crapasmott76?'),
 
     /*
     |--------------------------------------------------------------------------

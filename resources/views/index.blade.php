@@ -252,7 +252,7 @@
                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
                     <div class="customise-form">
                          
-                            {!! Form::open(['route' => 'mail.store', 'method' => 'POST']) !!}
+                            {!! Form::open(['route' => 'mail.store', 'method' => 'POST', 'class' => 'emailform']) !!}
                                 <div class="form-element-wrapper">
                                     <h3>¿Quieres una cotización?</h3>
                                     <div class="form-group customised-formgroup"> <span class="icon-user"></span>
@@ -271,7 +271,7 @@
                                         {{ Form::textarea('mensaje', 'Mensaje',(['class' => 'form-control'])) }}
                                     </div>
                                     <div>
-                                        {!!Form::submit('SEND', array('name' => 'boton', 'class' => 'btn btn-fill full-width')) !!}
+                                        {!!Form::submit('SEND', array('name' => 'boton', 'class' => 'btn btn-fill full-width btnsendemail')) !!}
                                         <!--<button type="submit" class="btn btn-fill full-width"> Si la Quiero <span class="icon-chevron-right"></span></button>-->
                                     </div>
                                 </div>
@@ -351,4 +351,67 @@
 
 @section('footer')
 	@parent
+@endsection
+
+@section('scripts')
+    @parent
+    <script>
+            $(document).ready(function() {
+               
+                $.ajaxSetup({
+
+                    headers: {
+
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+                    }
+
+                });
+
+
+
+                $(".btnsendemail").click(function(e){
+
+                    alert('algo pasa');
+
+                    e.preventDefault();
+
+
+                    var name = $("input[name=name]").val();
+
+                    var email = $("input[name=email]").val();
+
+                    var movil = $("input[name=movil]").val();
+
+                    var website = $("input[name=website]").val();
+
+                    var mensaje = $("input[name=mensaje]").val();
+
+
+
+                    $.ajax({
+
+                       type:'POST',
+
+                       url:"{{URL::route('mail.store')}}",
+
+                       data:{name:name, email:email, movil:movil, website:website, mensaje:mensaje},
+
+                       success:function(response){  
+
+                          alert(response);
+
+                       }
+
+                    });
+
+
+
+                });
+
+
+
+
+            });
+    </script>
 @endsection

@@ -54,6 +54,8 @@
     <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="114x114" href=""> 
 
+    <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
+
     @yield('head')
 
     @section('css')
@@ -210,7 +212,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="customise-form">
-                                <form class="email_form" action="email.php" method="post">
+                                <form class="email_form">
                                     <h3>¿Quieres una cotización?</h3>
                                     <div class="form-group customised-formgroup"> <span class="icon-user"></span>
                                         <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre">
@@ -279,6 +281,8 @@
         <script type="text/javascript" src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
         <script type="text/javascript" src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
         <script type="text/javascript" src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+
+        
     @show
 </body>
 
