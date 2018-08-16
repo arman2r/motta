@@ -251,30 +251,60 @@
                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"> </div>
                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
                     <div class="customise-form">
-                         
+                            @if(Session::has('flash_message'))
+                                <div class="alert alert-succes">{{ Session::get('flash_message') }}</div>
+                            @endif
                             {!! Form::open(['route' => 'mail.store', 'method' => 'POST', 'class' => 'emailform']) !!}
                                 <div class="form-element-wrapper">
                                     <h3>¿Quieres una cotización?</h3>
                                     <div class="form-group customised-formgroup"> <span class="icon-user"></span>
                                         {{ Form::text('name', 'Nombre',(['class' => 'form-control'])) }}
+                                        @if($errors->has('name'))
+                                            <small class="form-text invalid-feedback">
+                                                {{ $errors->first('name') }}
+                                            </small>
+                                        @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-envelope"></span>
                                         {{ Form::text('email', 'Email',(['class' => 'form-control'])) }}
+                                        @if($errors->has('email'))
+                                            <small class="form-text invalid-feedback">
+                                                {{ $errors->first('email') }}
+                                            </small>
+                                        @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-telephone"></span>
                                         {{ Form::tel('movil', 'Móvil',(['class' => 'form-control'])) }}
+                                        @if($errors->has('movil'))
+                                            <small class="form-text invalid-feedback">
+                                                {{ $errors->first('movil') }}
+                                            </small>
+                                        @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-laptop"></span>
                                         {{ Form::text('website', 'Website',(['class' => 'form-control'])) }}
+                                        @if($errors->has('website'))
+                                            <small class="form-text invalid-feedback">
+                                                {{ $errors->first('website') }}
+                                            </small>
+                                        @endif
                                     </div>
                                     <div class="form-group customised-formgroup"> <span class="icon-bubble"></span>
                                         {{ Form::textarea('mensaje', 'Mensaje',(['class' => 'form-control'])) }}
+                                        @if($errors->has('mensaje'))
+                                            <small class="form-text invalid-feedback">
+                                                {{ $errors->first('mensaje') }}
+                                            </small>
+                                        @endif
                                     </div>
                                     <div>
                                         {!!Form::submit('SEND', array('name' => 'boton', 'class' => 'btn btn-fill full-width btnsendemail')) !!}
                                         <!--<button type="submit" class="btn btn-fill full-width"> Si la Quiero <span class="icon-chevron-right"></span></button>-->
                                     </div>
                                 </div>
+                                @if(Session::has('message')) 
+                                    {{Session::get('message')}} 
+                                @endif
                             {!! Form::close() !!}
                        
                             <!--
@@ -356,26 +386,21 @@
 @section('scripts')
     @parent
     <script>
+        /*
             $(document).ready(function() {
                
-                $.ajaxSetup({
-
-                    headers: {
-
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
-                    }
-
-                });
-
-
 
                 $(".btnsendemail").click(function(e){
 
                     alert('algo pasa');
 
-                    e.preventDefault();
+                    $.ajaxSetup({
+                      headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      }
+                    });
 
+                    e.preventDefault();
 
                     var name = $("input[name=name]").val();
 
@@ -389,17 +414,19 @@
 
 
 
-                    $.ajax({
-
-                       type:'POST',
+                    $.ajax({                        
 
                        url:"{{URL::route('mail.store')}}",
+
+                       type:'POST',    
+
+                       dataType: 'json',                   
 
                        data:{name:name, email:email, movil:movil, website:website, mensaje:mensaje},
 
                        success:function(response){  
 
-                          alert(response);
+                          console.log(response);
 
                        }
 
@@ -413,5 +440,6 @@
 
 
             });
+            */
     </script>
 @endsection

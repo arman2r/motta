@@ -4,10 +4,10 @@
 	<title>Correo contacto</title>
 </head>
 <body>
-	<p><strong>Nombre:</strong> {!!$name!!}</p>
-	<p><strong>Email:</strong> {!!$email!!}</p>
-	<p><strong>Móvil:</strong> {!!$movil!!}</p>
-	<p><strong>Website:</strong> {!!$website!!}</p>
-	<p><strong>Mensaje:</strong> {!!$mensaje!!}</p>
+	<p><strong>Nombre:</strong> {!! $name !!}</p>
+	<p><strong>Email:</strong> {!! $email !!}</p>
+	<p><strong>Móvil:</strong> {!! $movil !!}</p>
+	<p><strong>Website:</strong> {!! $website !!}</p>
+	<p><strong>Mensaje:</strong> {!! $mensaje !!}</p>
 </body>
 </html>

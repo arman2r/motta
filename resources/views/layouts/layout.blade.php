@@ -54,7 +54,7 @@
     <link rel="apple-touch-icon" sizes="114x114" href="icon/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="114x114" href=""> 
 
-    <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('head')
 
